@@ -25,6 +25,9 @@ try:
 except Exception as e:
     print("\nUnable to commit.\n{0}\n{1}".format('='*100, e))
 
+
+
+try:
     try:
         with open('config.json') as json_file:
             config = json.load(json_file)
@@ -32,8 +35,6 @@ except Exception as e:
     except Exception as e:
         print("\nUnable to open \"config.json\".\n{0}\n{1}".format('='*100, e))
         sys.exit(1)
-
-try:
     if config["gitType"] == ["git"]:
         origin = repo.remote(name="origin")
         push = origin.push()
