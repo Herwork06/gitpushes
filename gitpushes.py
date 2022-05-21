@@ -28,8 +28,8 @@ except Exception as e:
 
 try:
     origin = repo.remote(name="origin")
-    origin.push
-    print("\nPushed the files to {1}\n{0}".format('='*100, commit_msg, origin.name))
+    push = origin.push()
+    print("\nPushed the files to {1}\n{0}".format('='*100, commit_msg, repo.active_branch))
 
 except Exception as e:
     print("\nUnable to push the commit.\n{0}\n{1}".format('='*100, e))
