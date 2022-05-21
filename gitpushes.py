@@ -11,14 +11,25 @@ print(repo_dir)
 
 repo = git.Repo(repo_dir)
 
-repo.git.add(update=True)
+try:
+    repo.git.add(update=True)
+    print("\nAdded {1} files\n{0}".format('='*100, "null"))
+except Exception as e:
+    print("\nUnable to add all updated files.\n{0}\n{1}".format('='*100, e))
 
+commit_msg = input("\nPlease input your commit message\n{0}\n".format('='*100))
 
+print(commit_msg)
 
-print("\nAdded files\n{0}".format('='*100))
+try:
+    commit = repo.index.commit(commit_msg)
+    print("\nCommited {2} files with msg: {1}\n{0}".format('='*100, commit_msg, commit.size))
+except Exception as e:
+    print("\nUnable to commit.\n{0}\n{1}".format('='*100, e))
 
-repo.index.commit("first commit")
-
-origin = repo.remote(name="origin")
-origin.push
+try:
+    origin = repo.remote(name="origin")
+    origin.push
+except Exception as e:
+    print("\nUnable to push the commit.\n{0}\n{1}".format('='*100, e))
 
