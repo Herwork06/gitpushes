@@ -7,8 +7,6 @@ print("\nGetting Git Repo\n{0}".format('='*100))
 
 repo_dir = "{0}\.git".format(os.path.dirname(os.path.abspath(__file__)))
 
-print(repo_dir)
-
 repo = git.Repo(repo_dir)
 
 try:
@@ -29,7 +27,7 @@ except Exception as e:
 try:
     origin = repo.remote(name="origin")
     push = origin.push()
-    print("\nPushed the files to {1}\n{0}".format('='*100, commit_msg, repo.active_branch))
+    print("\nPushed the files to {1}\n{0}".format('='*100, repo.active_branch))
 
 except Exception as e:
     print("\nUnable to push the commit.\n{0}\n{1}".format('='*100, e))
