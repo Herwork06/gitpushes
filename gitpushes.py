@@ -5,7 +5,7 @@ print("Gitpushes\n{0}".format('='*100))
 
 print("\nGetting Git Repo\n{0}".format('='*100))
 
-repo_dir = os.path.dirname(os.path.abspath(__file__))
+repo_dir = "{0}\.git".format(os.path.dirname(os.path.abspath(__file__)))
 
 print(repo_dir)
 
