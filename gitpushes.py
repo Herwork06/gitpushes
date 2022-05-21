@@ -19,11 +19,10 @@ except Exception as e:
 
 commit_msg = input("\nPlease input your commit message\n{0}\n".format('='*100))
 
-print(commit_msg)
 
 try:
     commit = repo.index.commit(commit_msg)
-    print("\nCommited {2} files with msg: {1}\n{0}".format('='*100, commit_msg, commit.size))
+    print("\nCommited {2} files with msg: {1}\n{0}".format('='*100, commit_msg, commit.stats.total))
 except Exception as e:
     print("\nUnable to commit.\n{0}\n{1}".format('='*100, e))
 
