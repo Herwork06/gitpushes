@@ -10,12 +10,15 @@ repo_dir = os.path.dirname(os.path.abspath(__file__))
 print(repo_dir)
 
 repo = git.Repo(repo_dir)
-r = git.Repo.init(repo_dir)
 
-repo.git.add(all=True)
+repo.git.add(update=True)
 
 
 
 print("\nAdded files\n{0}".format('='*100))
 
-r.index.commit("initial commit")
+repo.index.commit("first commit")
+
+origin = repo.remote(name="origin")
+origin.push
+
