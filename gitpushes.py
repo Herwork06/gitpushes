@@ -11,7 +11,7 @@ repo_dir = "{0}\.git".format(os.path.dirname(os.path.abspath(__file__)))
 repo = git.Repo(repo_dir)
 
 try:
-    repo.git.add(update=True)
+    repo.git.add(all=True)
     print("\nAdded {1} files\n{0}".format('='*100, "null"))
 except Exception as e:
     print("\nUnable to add all updated files.\n{0}\n{1}".format('='*100, e))
